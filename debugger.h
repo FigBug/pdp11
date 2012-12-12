@@ -56,17 +56,17 @@ void MS_printfCodeLine(u16 pcaddr);
 
 void MS_stringtolower(char *string);
 
-int MS_stringishex(char *string);
+int MS_stringishex(const char *string);
 
-int MS_stringisdigit(char *string);
+int MS_stringisdigit(const char *string);
 
-int MS_isValidS16(char *string, char *base);
+int MS_isValidS16(const char *string, const char *base);
 
-int MS_isValidU16(char *string, char *base);
+int MS_isValidU16(const char *string, const char *base);
 
-int MS_isValidU8(char *string, char *base);
+int MS_isValidU8(const char *string, const char *base);
 
-char MS_valueAndType(char *string, int &value);
+char MS_valueAndType(const char *string, int &value);
 
 int MS_lookupFlag(char *string, u8 &flag);
 

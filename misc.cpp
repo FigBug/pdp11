@@ -141,7 +141,7 @@ void MS_stringtolower(char *string){
 	}
 }
 
-int MS_stringishex(char *string){
+int MS_stringishex(const char *string){
 	//returns true if hex value
 	//returns false if not hex value
 
@@ -157,7 +157,7 @@ int MS_stringishex(char *string){
 	return true;
 }
 
-int MS_stringisdigit(char *string){
+int MS_stringisdigit(const char *string){
 
 	while (*string != '\0'){
 		if ((isdigit(*string)) == 0){   //not a digit (0-9)
@@ -168,7 +168,7 @@ int MS_stringisdigit(char *string){
 	return true;
 }
 
-int MS_isValidU8(char *string, char *base){
+int MS_isValidU8(const char *string, const char *base){
 //returns a valid u16 or a negative number if something went wrong.
 
 	int temp;
@@ -209,7 +209,7 @@ int MS_isValidU8(char *string, char *base){
 	return value;
 }
 
-int MS_isValidU16(char *string, char *base){
+int MS_isValidU16(const char *string, const char *base){
 //returns a valid u16 or a negative number if something went wrong.
 
 	int temp;
@@ -251,7 +251,7 @@ int MS_isValidU16(char *string, char *base){
 }
 
 
-int MS_isValidS16(char *string, char *base){
+int MS_isValidS16(const char *string, const char *base){
 
 	//returns a valid s16 (inside an int) if everything goes as planned.
 	//returns MIN_S16-1 (inside an int) if ;
@@ -296,9 +296,12 @@ int MS_isValidS16(char *string, char *base){
 	return value;
 }
 
-char MS_valueAndType(char *string, int &value){
+char MS_valueAndType(const char *stringIn, int &value){
 	int length;
 	char lastchar;
+        char string[1000];
+
+	strcpy(string, stringIn);
 
 	length = strlen(string);
 	lastchar = string[length-1];

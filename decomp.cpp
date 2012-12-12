@@ -8,9 +8,9 @@
 
 #include "decomp.h"
 
-char *DECregstr(int b2, int b1, int b0)
+const char *DECregstr(int b2, int b1, int b0)
 {
-  char *rstr;
+  const char *rstr;
 
   if (b2 == 0 && b1 == 0 && b0 == 0) rstr = "r0";
   if (b2 == 0 && b1 == 0 && b0 == 1) rstr = "r1";

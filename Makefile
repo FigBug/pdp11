@@ -59,7 +59,7 @@ io.o: io.cpp io.h
 
 # the PDP-11 Clock Emularor
 pdpclk: pdpclk.cpp
-	$(CC) $(CFLAGS) -lposix4 -o pdpclk pdpclk.cpp
+	$(CC) $(CFLAGS) -o pdpclk pdpclk.cpp
 
 # the PDP-11 Terminal Emulator
 pdptrm: pdptrm.cpp
