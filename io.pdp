@@ -1,0 +1,4 @@
+start:  mov #5,r0
+loop:   inc r2
+        sob r0,loop
+        halt

@@ -1,0 +1,8 @@
+        br start
+        br hndlr
+start:  movb #177,@#177560
+        mov #1002,@#000060
+wait:   br wait
+hndlr:  movb @#177562,r0
+        movb r0,@#177566
+        rti

@@ -1,0 +1,80 @@
+main: clr r0
+      clr (r1)
+      clr (r2)+
+	br main
+      clr @(r3)+
+      clr -(r4)
+      clr @-(r5)
+	BPL inner
+      clr 124(r6)
+loop: clr @12445(r7)
+      clr #12545
+      clr @#000200
+      clr 000300
+      clr @000777
+	jmp r0
+      jmp (r1)
+      jmp (r2)+
+      jmp @(r3)+
+      jmp -(r4)
+      jmp @-(r5)
+      jmp 124(r6)
+	jmp @12445(r7)
+      jmp #12545
+      jmp @#000200
+      jmp 000300
+      jmp @000777
+      clrb r0
+	blt inner
+      clrb (r1)
+      clrb (r2)+
+first:clrb @(r3)+
+      clrb -(r4)
+      clrb @-(r5)
+      clrb 124(r6)
+	bne first
+      clrb @12445(r7)
+      clrb #12545
+	bne loop
+      clrb @#000200
+      clrb 000300
+outer:clrb @000777
+      mov r0,(r1)
+      mov (r1),(r2)+
+      mov (r2)+,@(r3)+
+      mov @(r3)+,-(r4)
+	bne outer
+      mov -(r4),@-(r5)
+      mov @-(r5),124(r6)
+      mov 124(r6),@12445(r7)
+      mov @12445(r7),#12545
+inner:mov #12545,@#000200
+      mov @#000200,000300
+      mov 000300,@000777
+      mov @000777,r0
+      movb r0,(r1)
+      movb (r1),(r2)+
+      movb (r2)+,@(r3)+
+	bne last
+      movb @(r3)+,-(r4)
+      movb -(r4),@-(r5)
+      movb @-(r5),124(r6)
+      movb 124(r6),@12445(r7)
+      movb @12445(r7),#12545
+last: movb #12545,@#000200
+	bne bob
+      movb @#000200,000300
+      movb 000300,@000777
+bob:  movb @000777,r0
+	jsr r1, r0
+	jsr r1, (r0)
+	jsr r1, (r0)+
+	jsr r1, @(r0)+
+	jsr r1, -(r0)
+	jsr r1, @-(r0)
+	jsr r1, 1233(r0)
+	jsr r1, @177777(r0)
+	jsr r1, #177555
+	jsr r1, @#123456
+	jsr r1, 123654
+	jsr r1, @100007

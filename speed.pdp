@@ -1,0 +1,10 @@
+        mov #001750,r0
+outer:  dec r0
+        mov #001750,r1
+inner:  dec r1
+        mov (r3),(r4)
+        tst r1
+        bne inner
+        tst r0
+        bne outer
+        halt

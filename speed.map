@@ -1,0 +1,10 @@
+0200 mov #001750,r0
+0204 outer:  dec r0
+0206 mov #001750,r1
+020a inner:  dec r1
+020c mov (r3),(r4)
+020e tst r1
+0210 bne inner
+0212 tst r0
+0214 bne outer
+0216 halt

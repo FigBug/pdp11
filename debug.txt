@@ -1,0 +1,14 @@
+0: lable:[OUTER] index:258 *** lable:[INNER] index:264
+1: lable:[INNER] index:261 *** lable:[OUTER] index:266
+256: [012700]--[mov #001750,r0]
+257: [001750]--[NULL]
+258: [005300]--[outer:  dec r0]
+259: [012701]--[mov #001750,r1]
+260: [001750]--[NULL]
+261: [005301]--[inner:  dec r1]
+262: [011314]--[mov (r3),(r4)]
+263: [005701]--[tst r1]
+264: [001374]--[bne inner]
+265: [005700]--[tst r0]
+266: [001367]--[bne outer]
+267: [000000]--[halt]

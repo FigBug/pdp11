@@ -1,0 +1,20 @@
+start:  mov #177566, r0 ; put the output address in r0
+        mov #04, r1
+loop:   movb #015, (r0) ; print 4 cr/lf
+        movb #012, (r0)
+        dec r1
+        bne loop
+        movb #106, (r0) ; print a nasty message
+        movb #165, (r0)
+        movb #143, (r0)
+        movb #153, (r0)
+        movb #040, (r0)
+        movb #171, (r0)
+        movb #157, (r0)
+        movb #165, (r0)
+        movb #040, (r0) 
+        movb #153, (r0)
+        movb #145, (r0)
+        movb #156, (r0)
+        movb #041, (r0)
+end:    halt

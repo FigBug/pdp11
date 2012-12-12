@@ -1,0 +1,12 @@
+        br start
+        br hndlr
+start:  clr r5
+        mov #001002,@#000100
+        mov #177777,@#177546
+wait:   br wait
+hndlr:  inc r5
+        cmp r5, #74
+        bne done
+        mov #44,@#177566
+        clr r5
+done:   rti

@@ -1,0 +1,12 @@
+        br one
+        inc r5          ; count the ticks
+        cmp r5, #74
+        bne done
+        mov #44,177566  ; print a char every second
+        clr r5
+done:   rti             ; return from interrupt
+one:    clr r5
+        mov #001002,@#000100
+        mov #177777,@#177546
+wait:   inc r0
+        br wait

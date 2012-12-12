@@ -1,0 +1,73 @@
+0200 start:  mov #177566,r0  ; print title
+0204 movb #012,(r0)
+0208 movb #012,(r0)
+020c movb #122,(r0)  ; Rock 
+0210 movb #157,(r0)
+0214 movb #143,(r0)
+0218 movb #153,(r0)
+021c movb #040,(r0)  
+0220 movb #120,(r0)  ; Paper 
+0224 movb #141,(r0)
+0228 movb #160,(r0)
+022c movb #145,(r0)
+0230 movb #162,(r0)
+0234 movb #040,(r0)
+0238 movb #123,(r0) ; Scissors
+023c movb #143,(r0)
+0240 movb #151,(r0)
+0244 movb #163,(r0)
+0248 movb #163,(r0)
+024c movb #157,(r0)
+0250 movb #162,(r0)
+0254 movb #163,(r0)
+0258 movb #012,(r0)
+025c movb #111,(r0) ; print input string
+0260 movb #156,(r0)
+0264 movb #160,(r0)
+0268 movb #165,(r0)
+026c movb #164,(r0)
+0270 movb #040,(r0)
+0274 movb #050,(r0)
+0278 movb #162,(r0)
+027c movb #057,(r0)
+0280 movb #160,(r0)
+0284 movb #057,(r0)
+0288 movb #163,(r0)
+028c movb #051,(r0)
+0290 movb #076,(r0)
+0294 wait:   mov @#177560,r1
+0298 tst r1
+029a beq wait
+029c movb @#177562,r1
+02a0 cmp r1, #000162
+02a4 beq rock
+02a6 cmp r1, #000160
+02aa beq paper
+02ac cmp r1, #163
+02b0 beq sciss
+02b2 br wait
+02b4 rock:   movb r1,@#177566
+02b8 mov #012,(r0)
+02bc br start
+02be paper:  movb r1,@#177566
+02c2 mov #012,(r0)
+02c6 br start
+02c8 sciss:  movb r1,@#177566
+02cc mov #012,(r0)
+02d0 br start
+02d2 cpick:  movb #103,(r0)
+02d6 movb #157,(r0)
+02da movb #155,(r0)
+02de movb #160,(r0)
+02e2 movb #165,(r0)
+02e6 movb #164,(r0)
+02ea movb #145,(r0)
+02ee movb #162,(r0)
+02f2 movb #040,(r0)
+02f6 movb #160,(r0)
+02fa movb #151,(r0)
+02fe movb #143,(r0)
+0302 movb #153,(r0)
+0306 movb #163,(r0)
+030a movb #070,(r0)
+030e rts r5

@@ -1,0 +1,10 @@
+start:  mov #177560,r0  ; set up the base
+        movb #0,(r0)    ; set key mode to zero
+more:   movb (r0),r1    ; get the key status
+        tst r1          ; test it
+        beq more
+        movb  2(r0),r2  ; get the key
+        movb  r2,6(r0)  ; move the key press to output
+        cmp r2,#033     ; check if its ESC 
+        bne more
+        halt            ; quit

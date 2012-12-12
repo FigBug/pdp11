@@ -1,0 +1,73 @@
+start:  mov #177566,r0  ; print title
+        movb #012,(r0)
+        movb #012,(r0)
+        movb #122,(r0)  ; Rock 
+        movb #157,(r0)
+        movb #143,(r0)
+        movb #153,(r0)
+        movb #040,(r0)  
+        movb #120,(r0)  ; Paper 
+        movb #141,(r0)
+        movb #160,(r0)
+        movb #145,(r0)
+        movb #162,(r0)
+        movb #040,(r0)
+        movb #123,(r0) ; Scissors
+        movb #143,(r0)
+        movb #151,(r0)
+        movb #163,(r0)
+        movb #163,(r0)
+        movb #157,(r0)
+        movb #162,(r0)
+        movb #163,(r0)
+        movb #012,(r0)
+        movb #111,(r0) ; print input string
+        movb #156,(r0)
+        movb #160,(r0)
+        movb #165,(r0)
+        movb #164,(r0)
+        movb #040,(r0)
+        movb #050,(r0)
+        movb #162,(r0)
+        movb #057,(r0)
+        movb #160,(r0)
+        movb #057,(r0)
+        movb #163,(r0)
+        movb #051,(r0)
+        movb #076,(r0)
+wait:   mov @#177560,r1
+        tst r1
+        beq wait
+        movb @#177562,r1
+        cmp r1, #000162
+        beq rock
+        cmp r1, #000160
+        beq paper
+        cmp r1, #163
+        beq sciss
+        br wait
+rock:   movb r1,@#177566
+        mov #012,(r0)
+        br start
+paper:  movb r1,@#177566
+        mov #012,(r0)
+        br start
+sciss:  movb r1,@#177566
+        mov #012,(r0)
+        br start
+cpick:  movb #103,(r0)
+        movb #157,(r0)
+        movb #155,(r0)
+        movb #160,(r0)
+        movb #165,(r0)
+        movb #164,(r0)
+        movb #145,(r0)
+        movb #162,(r0)
+        movb #040,(r0)
+        movb #160,(r0)
+        movb #151,(r0)
+        movb #143,(r0)
+        movb #153,(r0)
+        movb #163,(r0)
+        movb #070,(r0)
+        rts r5
