@@ -95,13 +95,13 @@ bool DECdecompile(u16 addr, char *text)
   INTu16_to_word(op, instr);
 
   /* Decode any wierd : jump & subroutine */
-  if (op & 0xFFC0 == 0x0040)
+  if ((op & 0xFFC0) == 0x0040)
   {
     src = DECgetaddr(addr, 0, instr[5], instr[4], instr[3], instr[2], instr[1], instr[0]);
     sprintf(text, "jmp %s", src); 
     return false;
   }
-  else if (op & 0xFE00 == 0x0800)
+  else if ((op & 0xFE00) == 0x0800)
   {
     src = DECgetaddr(addr, 0, 0, 0, 0, instr[8], instr[7], instr[6]);
     buf = strdup(src);
@@ -111,18 +111,18 @@ bool DECdecompile(u16 addr, char *text)
     free(buf);
     return false;
   }
-  else if (op & 0xFFF8 == 0x0080)
+  else if ((op & 0xFFF8) == 0x0080)
   {
     src = DECgetaddr(addr, 0, 0, 0, 0, instr[2], instr[1], instr[0]);
     sprintf(text, "rts %s", src);
     return false;
   }
-  else if (op & 0xFFC0 == 0x0D00)
+  else if ((op & 0xFFC0) == 0x0D00)
   {
     sprintf(text, "mark %2.2X", (int)(op & 0x003F));
     return false;
   }
-  else if (op & 0xFE00 == 0x7E00)
+  else if ((op & 0xFE00) == 0x7E00)
   {
     src = DECgetaddr(addr, 0, 0, 0, 0, instr[8], instr[7], instr[6]);
     sprintf(text, "sob %s, %2.2X", src, (int)(0x003F & op));
@@ -130,12 +130,12 @@ bool DECdecompile(u16 addr, char *text)
   }
 
   /* Decode any wierd : Trap */
-  if (op & 0xFF00 == 0x8800)
+  if ((op & 0xFF00) == 0x8800)
   {
     sprintf(text, "emt");
     return false;
   }
-  else if (op & 0xFF00 == 0x8900)
+  else if ((op & 0xFF00) == 0x8900)
   {
     sprintf(text, "trap");
     return false;
@@ -173,7 +173,7 @@ bool DECdecompile(u16 addr, char *text)
     return false;
   }
   /* Decode any wierd : Condition Code  */
-  else if (op & 0xFFE0 == 0x00A0)
+  else if ((op & 0xFFE0) == 0x00A0)
   {
     sprintf(text, "cc %2.2X", (int)(0x001F &op));
     return false;

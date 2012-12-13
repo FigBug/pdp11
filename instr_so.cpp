@@ -200,8 +200,8 @@ void OP_tstb(u16 addr)
 void OP_asr(u16 addr)
 {
   u16 val;
-  bool n;
-  bool c;
+  bool n = false;
+  bool c = false;
 
   CPUreadword(addr, val);
 
@@ -232,8 +232,8 @@ void OP_asr(u16 addr)
 void OP_asrb(u16 addr)
 {
   u8 val;
-  bool n;
-  bool c;
+  bool n = false;
+  bool c = false;
 
   CPUreadbyte(addr, val);
 
@@ -323,9 +323,9 @@ void OP_ror(u16 addr)
 {
   u16 val;
   u16 res;
-  bool n;
-  bool c;
-  bool cc;
+  bool n = false;
+  bool c = false;
+  bool cc = false;
 
   CPUreadword(addr, val);
 
@@ -359,9 +359,9 @@ void OP_rorb(u16 addr)
 {
   u8 val;
   u8 res;
-  bool n;
-  bool c;
-  bool cc;
+  bool n = false;
+  bool c = false;
+  bool cc = false;
 
   CPUreadbyte(addr, val);
 
@@ -395,9 +395,9 @@ void OP_rol(u16 addr)
 {
   u16 val;
   u16 res;
-  bool n;
-  bool c;
-  bool cc;
+  bool n = false;
+  bool c = false;
+  bool cc = false;
 
   CPUreadword(addr, val);
 
@@ -431,9 +431,9 @@ void OP_rolb(u16 addr)
 {
   u8 val;
   u8 res;
-  bool n;
-  bool c;
-  bool cc;
+  bool n = false;
+  bool c = false;
+  bool cc = false;
 
   CPUreadbyte(addr, val);
 

@@ -632,7 +632,7 @@ bool CPUstep(void)
     return false;
   }
   /* Decode any wierd : Condition Code  */
-  else if (op & 0xFFE0 == 0x00A0)
+  else if ((op & 0xFFE0) == 0x00A0)
   {
     OP_cc(0x001F & op);
 

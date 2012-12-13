@@ -252,8 +252,8 @@ void OP_mul(u16 src, u16 dst)
   u16 sval;
   u16 dval;
 
-  u16 hival;
-  u16 loval;
+  //u16 hival;
+  //u16 loval;
 
   s16 ss;
   s16 dd;
@@ -279,8 +279,8 @@ void OP_mul(u16 src, u16 dst)
 
   CPUsetflag(FV, clear);
 
-  hival = INTs16tou16(hi);
-  loval = INTs16tou16(lo);
+  //hival = INTs16tou16(hi);
+  //loval = INTs16tou16(lo);
 
   if (src % 2 == 0)
   {

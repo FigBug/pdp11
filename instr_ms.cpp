@@ -27,8 +27,8 @@ void OP_jmp(u16 addr)
 
 void OP_jsr(u16 rr, u16 dd)
 {
-  u16 sbr;
-  u16 reg;
+  u16 sbr = 0;
+  u16 reg = 0;
 
   CPUreadword(dd, sbr);
 

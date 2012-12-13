@@ -190,7 +190,7 @@ void OP_bge(u8 off)
   CPUtstflag(FV, vv);
   CPUtstflag(FN, nn);
 
-  if (nn || vv && (!(nn && vv)))
+  if (nn || (vv && (!(nn && vv))))
   {    
     regs[PC] += 2;    
   }
@@ -203,15 +203,15 @@ void OP_bge(u8 off)
 void OP_blt(u8 off)
 {
   s8 offset;
-  bool nn;
-  bool vv;
+  bool nn = false;
+  bool vv = false;
 
   offset = INTu8tos8(off);
 
   CPUtstflag(FV, vv);
   CPUtstflag(FN, nn);
 
-  if (nn || vv && (!(nn && vv)))
+  if (nn || (vv && (!(nn && vv))))
   {
     regs[PC] = regs[PC] + (offset * 2) + 2;    
   }
@@ -234,7 +234,7 @@ void OP_bgt(u8 off)
   CPUtstflag(FN, nn);
   CPUtstflag(FZ, zz);
 
-  if (zz || (nn || vv && (!(nn && vv))))
+  if (zz || (nn || (vv && (!(nn && vv)))))
   {
     regs[PC] += 2;    
   }
@@ -257,7 +257,7 @@ void OP_ble(u8 off)
   CPUtstflag(FN, nn);
   CPUtstflag(FZ, zz);
 
-  if (zz || (nn || vv && (!(nn && vv))))
+  if (zz || (nn || (vv && (!(nn && vv)))))
   {
     regs[PC] = regs[PC] + (offset * 2) + 2;    
   }
